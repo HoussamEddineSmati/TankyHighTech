@@ -3,11 +3,7 @@
     
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 <title>Cart</title>
-    <link href="Styles.css" rel="stylesheet" />
-
-    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>--%>
-    <link href="css/Custome.css" rel="stylesheet" type="text/css" />
+    <link href="Theme/css/Custome.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <br />

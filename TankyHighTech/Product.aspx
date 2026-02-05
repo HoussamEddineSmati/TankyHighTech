@@ -70,6 +70,7 @@
                                             <h3><a href="product_details.html"><%# Eval ("PName") %></a></h3>
                                             <a href="ProductView.aspx?PID=<%# Eval("PID") %>" style="text-decoration: none;">
                                                 <span><%# Eval ("PPrice","{0:0,00}") %> </span><%# Eval ("PSelPrice","{0:c}") %> <span class="proPriceDiscount">(<%# Eval("DiscAmount","{0:0,00}") %> off) </span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

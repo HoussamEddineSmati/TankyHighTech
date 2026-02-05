@@ -25,7 +25,11 @@ public partial class signup : System.Web.UI.Page
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TankyShop"].ConnectionString))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Insert into Users(Name,Username,Password,Email,Usertype) Values('" + txtName.Text + "','" + txtUname.Text + "','" + txtPass.Text + "','" + txtEmail.Text + "','User')", con);
+                SqlCommand cmd = new SqlCommand("Insert into Users(Name,Username,Password,Email,Usertype) Values(@Name,@Username,@Password,@Email,'User')", con);
+                cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                cmd.Parameters.AddWithValue("@Username", txtUname.Text);
+                cmd.Parameters.AddWithValue("@Password", txtPass.Text);
+                cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
                 cmd.ExecuteNonQuery();
 
                 Response.Write("<script> alert('Registration Successfully done');  </script>");

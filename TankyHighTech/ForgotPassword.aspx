@@ -43,7 +43,7 @@
                                             <li><a href="#"> Pc fixe</a></li>
                                         </ul>
                                     </li>
-                                    <li class="hot"><a href="about.html">Configuration Pc</a></li>
+                                    <li class="hot"><a href="Config.aspx">Configuration Pc</a></li>
                                     <li><a href="#">Composants</a>
                                         <ul class="submenu">
                                             <li><a href="#"> Processeur</a></li>
@@ -56,15 +56,15 @@
                                     <li><a href="about.aspx">Autre</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="submenu">
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="elements.html">Element</a></li>
-                                            <li><a href="confirmation.html">Confirmation</a></li>
-                                            <li><a href="checkout.html">Product Checkout</a></li>
+                                            <li><a href="login.aspx">Login</a></li>
+                                            <li><a href="Cart.aspx">Cart</a></li>
+                                            <li><a href="#">Element</a></li>
+                                            <li><a href="#">Confirmation</a></li>
+                                            <li><a href="#">Product Checkout</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="about.aspx">about</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="about.aspx">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -76,8 +76,8 @@
                                         <span class="flaticon-search"></span>
                                     </div>
                                 </li>
-                                <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
-                                <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
+                                <li> <a href="login.aspx"><span class="flaticon-user"></span></a></li>
+                                <li><a href="Cart.aspx"><span class="flaticon-shopping-cart"></span></a> </li>
                             </ul>
                         </div>
                     </div>

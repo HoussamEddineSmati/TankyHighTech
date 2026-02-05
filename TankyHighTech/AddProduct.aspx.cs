@@ -196,7 +196,8 @@ public partial class AddProduct : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection(CS))
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("Select * from SubCategory where MainCatID='" + ddlCategory.SelectedItem.Value + "'", con);
+            SqlCommand cmd = new SqlCommand("Select * from SubCategory where MainCatID=@MainCatID", con);
+            cmd.Parameters.AddWithValue("@MainCatID", ddlCategory.SelectedItem.Value);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);

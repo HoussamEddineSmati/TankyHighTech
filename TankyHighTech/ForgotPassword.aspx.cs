@@ -33,7 +33,9 @@ public partial class ForgotPassword : System.Web.UI.Page
                 String myGUID = Guid.NewGuid().ToString();
                 int Uid = Convert.ToInt32(dt.Rows[0][0]);
 
-                SqlCommand cmd1 = new SqlCommand("Insert into ForgotPass(Id,Uid,RequestDateTime) values('" + myGUID + "','" + Uid + "',GETDATE())", con);
+                SqlCommand cmd1 = new SqlCommand("Insert into ForgotPass(Id,Uid,RequestDateTime) values(@Id,@Uid,GETDATE())", con);
+                cmd1.Parameters.AddWithValue("@Id", myGUID);
+                cmd1.Parameters.AddWithValue("@Uid", Uid);
                 cmd1.ExecuteNonQuery();
 
 

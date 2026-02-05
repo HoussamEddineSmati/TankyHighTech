@@ -86,7 +86,8 @@ public partial class RecoverPassword : System.Web.UI.Page
                 cmd.ExecuteNonQuery();
 
 
-                SqlCommand cmd2 = new SqlCommand("delete from ForgotPass where Uid='"+Uid+"'", con);
+                SqlCommand cmd2 = new SqlCommand("delete from ForgotPass where Uid=@Uid2", con);
+                cmd2.Parameters.AddWithValue("@Uid2", Uid);
                 cmd2.ExecuteNonQuery();
                 Response.Write("<script> alert('Password Reset Successfully done');  </script>");
                 Response.Redirect("~/login.aspx");

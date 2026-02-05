@@ -31,7 +31,7 @@
                     <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="Home.aspxl"><img src="assets/img/logo/logo.png" alt=""></a>
+                            <a href="Home.aspx"><img src="assets/img/logo/logo.png" alt=""></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
@@ -58,14 +58,14 @@
                                     <li><a href="#">Pages</a>
                                         <ul class="submenu">
                                             <li><a href="login.aspx">Login</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="elements.html">Element</a></li>
-                                            <li><a href="confirmation.html">Confirmation</a></li>
-                                            <li><a href="checkout.html">Product Checkout</a></li>
+                                            <li><a href="Cart.aspx">Cart</a></li>
+                                            <li><a href="#">Element</a></li>
+                                            <li><a href="#">Confirmation</a></li>
+                                            <li><a href="#">Product Checkout</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="about.aspx">about</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="about.aspx">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -78,7 +78,7 @@
                                     </div>
                                 </li>
                                 <li> <a href="login.aspx"><span class="flaticon-user"></span></a></li>
-                                <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
+                                <li><a href="Cart.aspx"><span class="flaticon-shopping-cart"></span></a> </li>
                             </ul>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                             <div class="login_part_form_iner">
                                 <h3>Please Enter Your New Password <br>
                                     </h3>
-                               <asp:Label ID="lblmsg" CssClass ="col-md-2 control-label" runat="server"  Visible="False" Font-Bold="True" Font-Size="X-Large"></asp:Label>
+                               <asp:Label ID="lblmsg" CssClass ="col-md-2 control-label" runat="server" Font-Bold="True" Font-Size="X-Large"></asp:Label>
                                     <div class="col-md-12 form-group p_star">
                                         <asp:TextBox ID="txtNewPass" runat="server" Class="form-control" TextMode="Password" placeholder=" Your New Password " ></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorNewPass" CssClass ="Text-danger" runat="server" ErrorMessage="Enter Your New Password" ControlToValidate="txtNewPass" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -135,7 +135,7 @@
                                     <div class="single-footer-caption mb-30">
                                         <!-- logo -->
                                         <div class="footer-logo">
-                                            <a href="Home.aspxl">
+                                            <a href="Home.aspx">
                                                 <img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                         </div>
                                         <div class="footer-tittle">

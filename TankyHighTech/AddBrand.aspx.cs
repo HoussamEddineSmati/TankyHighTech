@@ -40,7 +40,8 @@ public partial class AddBrand : System.Web.UI.Page
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TankyShop"].ConnectionString))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Insert into Brands(Name) Values('" + txtBrand.Text + "')", con);
+                SqlCommand cmd = new SqlCommand("Insert into Brands(Name) Values(@Name)", con);
+                cmd.Parameters.AddWithValue("@Name", txtBrand.Text);
                 cmd.ExecuteNonQuery();
 
                 Response.Write("<script> alert('Brand Added Successfully ');  </script>");

@@ -16,7 +16,7 @@ public partial class Config : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            //configattach();
+            configattach();
         }
     }
     protected void configattach()
@@ -30,10 +30,11 @@ public partial class Config : System.Web.UI.Page
             sda.Fill(dt);
             if (dt.Rows.Count != 0)
             {
+                ddlCpu.DataSource = dt;
                 ddlCpu.DataTextField = "CpuName";
-                ddlCpu.DataValueField = "CpuID";
+                ddlCpu.DataValueField = "CpuSupport";
                 ddlCpu.DataBind();
-                ddlCpu.Items.Insert(0, new ListItem(" --Slect Cpu-- ", "0"));
+                ddlCpu.Items.Insert(0, new ListItem(" --Select Cpu-- ", "0"));
 
             }
         }
@@ -45,16 +46,18 @@ public partial class Config : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection(CS))
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("Select * from MotherBoard where MSupport = " + supp, con);
+            SqlCommand cmd = new SqlCommand("Select * from MotherBoard where MSupport = @MSupport", con);
+            cmd.Parameters.AddWithValue("@MSupport", supp);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows.Count != 0)
             {
+                ddlMotherBoard.DataSource = dt;
                 ddlMotherBoard.DataTextField = "MName";
                 ddlMotherBoard.DataValueField = "MPort";
                 ddlMotherBoard.DataBind();
-                ddlMotherBoard.Items.Insert(0, new ListItem(" --Slect MotherBoard-- ", "0"));
+                ddlMotherBoard.Items.Insert(0, new ListItem(" --Select MotherBoard-- ", "0"));
 
             }
         }
@@ -66,7 +69,8 @@ public partial class Config : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection(CS))
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("Select * from Ram where RPort = " + supp, con);
+            SqlCommand cmd = new SqlCommand("Select * from Ram where RPort = @RPort", con);
+            cmd.Parameters.AddWithValue("@RPort", supp);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);

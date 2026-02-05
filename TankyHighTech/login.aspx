@@ -1,4 +1,4 @@
-﻿²<%@ Page Language="C#" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="login" %>
 
 <!DOCTYPE html>
 
@@ -30,7 +30,7 @@
                         <div class="menu-wrapper">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="Home.aspxl">
+                                <a href="Home.aspx">
                                     <img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                             <!-- Main-menu -->
@@ -58,10 +58,10 @@
                                         <li><a href="#">Pages</a>
                                             <ul class="submenu">
                                                 <li><a href="login.aspx">Login</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="elements.html">Element</a></li>
-                                                <li><a href="confirmation.html">Confirmation</a></li>
-                                                <li><a href="checkout.html">Product Checkout</a></li>
+                                                <li><a href="Cart.aspx">Cart</a></li>
+                                                <li><a href="#">Element</a></li>
+                                                <li><a href="#">Confirmation</a></li>
+                                                <li><a href="#">Product Checkout</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="about.aspx">about</a></li>
@@ -128,7 +128,7 @@
                                         <h3>Welcome Back !
                                             <br>
                                             Please Sign in now</h3>
-                                        <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                                        <div class="row contact_form">
                                             <div class="col-md-12 form-group p_star">
                                                 <asp:TextBox ID="txtUsername" runat="server" Class="form-control" placeholder=" UserName "></asp:TextBox>
                                             </div>
@@ -144,7 +144,7 @@
 
                                                 <a class="lost_pass" href="ForgotPassword.aspx">forget password?</a>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -167,7 +167,7 @@
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo">
-                                        <a href="Home.aspxl">
+                                        <a href="Home.aspx">
                                             <img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                     <div class="footer-tittle">

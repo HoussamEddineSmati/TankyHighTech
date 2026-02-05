@@ -120,9 +120,10 @@ public partial class Product : System.Web.UI.Page
         {
             SqlConnection con = new SqlConnection(CS);
             con.Open();
-            string qr = "select A.*,B.*,C.Name ,A.PPrice-A.PSelPrice as DiscAmount,B.Name as ImageName, C.Name as BrandName from Products A inner join Brands C on C.BrandID =A.PBrandID  cross apply( select top 1 * from ProductImages B where B.PID= A.PID order by B.PID desc )B where  A.PName like '" + txtFilterGrid1Record.Text + "%' order by A.PID desc";
-            SqlDataAdapter da = new SqlDataAdapter(qr, con);
-            string text = ((TextBox)sender).Text;
+            string qr = "select A.*,B.*,C.Name ,A.PPrice-A.PSelPrice as DiscAmount,B.Name as ImageName, C.Name as BrandName from Products A inner join Brands C on C.BrandID =A.PBrandID  cross apply( select top 1 * from ProductImages B where B.PID= A.PID order by B.PID desc )B where  A.PName like @SearchText order by A.PID desc";
+            SqlCommand cmd = new SqlCommand(qr, con);
+            cmd.Parameters.AddWithValue("@SearchText", txtFilterGrid1Record.Text + "%");
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
             if (ds.Tables[0].Rows.Count > 0)

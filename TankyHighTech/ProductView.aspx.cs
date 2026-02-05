@@ -28,7 +28,7 @@ public partial class ProductView : System.Web.UI.Page
          }
         else
         {
-            Response.Redirect("~/Products.aspx");
+            Response.Redirect("~/Product.aspx");
         }
     }
     
@@ -139,8 +139,8 @@ public partial class ProductView : System.Web.UI.Page
 
     protected override void InitializeCulture()
     {
-        CultureInfo ci = new CultureInfo("en-EN");
-        ci.NumberFormat.CurrencySymbol = "£";
+        CultureInfo ci = new CultureInfo("en-US");
+        ci.NumberFormat.CurrencySymbol = "$";
         Thread.CurrentThread.CurrentCulture = ci;
 
         base.InitializeCulture();

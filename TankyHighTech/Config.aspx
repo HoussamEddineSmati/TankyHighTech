@@ -25,8 +25,9 @@
 
             <div class="form-group">
                 <div class="col-md-3">
-                    <asp:DropDownList ID="ddlCpu" runat="server" DataSourceID="SqlDataSource1" DataTextField="CpuName" DataValueField="CpuName" AutoPostBack="true" OnSelectedIndexChanged="ddlCpu_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlCpu" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCpu_SelectedIndexChanged"></asp:DropDownList>
                 </div>
+            </div>
             <div class="form-group">
                 <div class="col-md-3">
                     <asp:TextBox ID="txtCpu" runat="server"></asp:TextBox>

@@ -14,15 +14,15 @@ public partial class Payment : System.Web.UI.Page
     public static Int32 OrderNumber = 1;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["USERNAME"] != null)
+        if (Session["Username"] != null)
         {
             if (!IsPostBack)
             {
                 BindPriceData2();
                 genAutoNum();
                 BindCartNumber();
-                BindOrderProducts(); 
-            }            
+                BindOrderProducts();
+            }
         }
         else
         {
@@ -86,13 +86,13 @@ public partial class Payment : System.Web.UI.Page
             else
             {
                 //TODO Show Empty Cart
-                Response.Redirect("~/Products.aspx");
+                Response.Redirect("~/Product.aspx");
             }
         }
         else
         {
             //TODO Show Empty Cart
-            Response.Redirect("~/Products.aspx");
+            Response.Redirect("~/Product.aspx");
         }
     }
 
@@ -128,7 +128,7 @@ public partial class Payment : System.Web.UI.Page
                 }
                 else
                 {
-                    Response.Redirect("Products.aspx");
+                    Response.Redirect("Product.aspx");
                 }
             }
         }
@@ -136,7 +136,7 @@ public partial class Payment : System.Web.UI.Page
 
     protected void btnPaytm_Click(object sender, EventArgs e)
     {
-        if (Session["USERNAME"] != null)
+        if (Session["Username"] != null)
         {
             string USERID = Session["USERID"].ToString();
             string PaymentType = "Paytm";
@@ -226,36 +226,18 @@ public partial class Payment : System.Web.UI.Page
     private void BindOrderProducts()
     {
         string UserIDD = Session["USERID"].ToString();
-        DataTable dt = new DataTable();
-        using (SqlConnection con0 = new SqlConnection(CS))
+        using (SqlConnection con = new SqlConnection(CS))
         {
-            SqlCommand cmd0 = new SqlCommand("SP_BindCartProducts", con0)
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Cart WHERE UID=@UID", con);
+            cmd.Parameters.AddWithValue("@UID", UserIDD);
+            using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
             {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd0.Parameters.AddWithValue("@UID", UserIDD);
-            using (SqlDataAdapter sda0 = new SqlDataAdapter(cmd0))
-            {
-                sda0.Fill(dt);
-                if (dt.Rows.Count > 0)
+                DataTable dtProducts = new DataTable();
+                sda.Fill(dtProducts);
+                if (dtProducts.Rows.Count > 0)
                 {
-                    foreach (DataColumn PID in dt.Columns)
-                    {
-                        using (SqlConnection con = new SqlConnection(CS))
-                        {
-                            using (SqlCommand cmd = new SqlCommand("SELECT * FROM Cart C WHERE C.PID=" + PID + " AND UID ='" + UserIDD + "'", con))
-                            {
-                                cmd.CommandType = CommandType.Text;
-                                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                                {
-                                    DataTable dtProducts = new DataTable();
-                                    sda.Fill(dtProducts);
-                                    gvProducts.DataSource = dtProducts;
-                                    gvProducts.DataBind();
-                                }
-                            }
-                        }
-                    }
+                    gvProducts.DataSource = dtProducts;
+                    gvProducts.DataBind();
                 }
             }
         }
